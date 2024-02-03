@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    // basicIO();
+    // Your cpp code here
+    
+    int t;
+    cin>>t;
+
+    for(int i=1;i<=t;i++)
+    {
+        cout<<"Case "<<i<<":"<<endl;
+        deque<int>deq;
+        int n,m;
+        cin>>n>>m;
+        while(m--)
+        {
+            string op;
+            cin>>op;
+            int element;
+            if(op == "pushLeft")
+            {
+                
+                cin>>element;
+                if(deq.size() != n)
+                {
+                    deq.push_front(element);
+                    cout<<"Pushed in left: " <<element<<endl;
+                }
+                else
+                {
+                    cout<<"The queue is full"<<endl;
+                }
+            }
+            else if(op == "pushRight")
+            {
+
+                cin>>element;
+                if(deq.size() != n)
+                {
+                    deq.push_back(element);
+                    cout<<"Pushed in right: " <<element<<endl;
+                }
+                else
+                {
+                    cout<<"The queue is full"<<endl;
+                }
+            }
+            else if(op == "popLeft")
+            {
+                
+                if(deq.size() != 0)
+                {
+                    element = deq.front();
+                    deq.pop_front();
+                    cout<<"Popped from left: "<<element<<endl;
+                }
+                else
+                {
+                    cout<<"The queue is empty"<<endl;
+                }
+            }
+            else if(op == "popRight")
+            {
+                
+                if(deq.size() != 0)
+                {
+                    element = deq.back();
+                    deq.pop_back();
+                    cout<<"Popped from right: "<<element<<endl;
+                }
+                else
+                {
+                    cout<<"The queue is empty"<<endl;
+                }
+            }
+        }
+    }
+    
+    return 0;
+}
